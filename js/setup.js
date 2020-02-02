@@ -9,7 +9,23 @@ var WIZARD_COATCOLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 10
 var WIZARD_EYESCOLORS = ['black', 'red', 'blue', 'yellow', 'green'];
 var WIZARD_QUANTITY = 4;
 
+var shuffleArray = function (array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+};
+
 var wizards = [];
+
+shuffleArray(WIZARD_EYESCOLORS);
+shuffleArray(WIZARD_NAMES);
+shuffleArray(WIZARD_SURNAMES);
+shuffleArray(WIZARD_COATCOLORS);
+
 for (var i = 0; i <= WIZARD_QUANTITY; i++) {
   wizards.push({name: WIZARD_NAMES[i], coatColor: WIZARD_COATCOLORS[i], eyesColor: WIZARD_EYESCOLORS[i]});
   for (i = 0; i < wizards.length; i++) {
@@ -39,4 +55,3 @@ for (i = 0; i < wizards.length; i++) {
 similarListElement.appendChild(fragment);
 
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
-
