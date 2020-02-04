@@ -48,10 +48,14 @@ var renderWizard = function (wizard) {
   return wizardElement;
 };
 
-var fragment = document.createDocumentFragment();
-for (i = 0; i < wizards.length; i++) {
-  fragment.appendChild(renderWizard(wizards[i]));
-}
-similarListElement.appendChild(fragment);
+var createFragment = function (array) {
+  var fragment = document.createDocumentFragment();
+  for (i = 0; i < array.length; i++) {
+    fragment.appendChild(renderWizard(array[i]));
+  }
+  return fragment;
+};
+createFragment(wizards);
+similarListElement.appendChild(createFragment(wizards));
 
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
