@@ -55,7 +55,6 @@ var createFragment = function (array) {
   }
   return fragment;
 };
-createFragment(wizards);
 similarListElement.appendChild(createFragment(wizards));
 
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
